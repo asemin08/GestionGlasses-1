@@ -1,8 +1,8 @@
 version: '3.3'
 services:
-  mysql:
+  docker-mysql:
     image: mysql:8.0
-    container_name: mysql
+    container_name: docker-mysql
     volumes:
       - ./mysql-data:/var/lib/mysql
     restart: always
@@ -10,18 +10,22 @@ services:
       MYSQL_ROOT_PASSWORD: 0D2B87E1DE55A9BD89009B37979CACD984AA773C7197BE3F46DCB15B0CAE7E6D
       MYSQL_DATABASE: glasses
     ports:
-      - '3306:3306'
+      - "3306:3306"
   phpmyadmin:
+    container_name: phpmyadmin
     depends_on:
       - mysql
     image: phpmyadmin/phpmyadmin
     ports:
-      - '8081:80'
+      - "8081:80"
     environment:
       PMA_HOST: mysql
   spring:
-    depends_on:
-      - mysql
+    container_name: springapp
     image: verkeur08/gestionglasses
     ports:
-      - '8080:8080'
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql:3306/glasses?autoReconnect=true&useSSL=false
+    depends_on:
+      - docker-mysql
