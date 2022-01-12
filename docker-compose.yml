@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  mysql-database:
+    image: mysql:8.0
+    container_name: mysql-database
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 0D2B87E1DE55A9BD89009B37979CACD984AA773C7197BE3F46DCB15B0CAE7E6D
+      MYSQL_DATABASE: glasses
+    ports:
+      - '3306:3306'
+  phpmyadmin:
+    depends_on:
+      - mysql-database
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '8081:80'
+    environment:
+      PMA_HOST: mysql-database
+  spring:
+    depends_on:
+      - mysql-database
+    image: verkeur08/gestionglasses
+    ports:
+      - '8080:8080'
