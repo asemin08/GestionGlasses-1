@@ -19,7 +19,7 @@ services:
     ports:
       - "8081:80"
     environment:
-      PMA_HOST: mysql
+      PMA_HOST: docker-mysql
   spring:
     container_name: springapp
     image: verkeur08/gestionglasses
