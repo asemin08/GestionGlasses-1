@@ -9,7 +9,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 0D2B87E1DE55A9BD89009B37979CACD984AA773C7197BE3F46DCB15B0CAE7E6D
       MYSQL_DATABASE: glasses
-      MYSQL_PASSWORD: root
+      MYSQL_USER: springUser
+      MYSQL_PASSWORD: springUser
     ports:
       - "3306:3306"
   phpmyadmin:
@@ -28,7 +29,7 @@ services:
       - "8082:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql/glasses
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_USERNAME: springUser
+      SPRING_DATASOURCE_PASSWORD: springUser
     depends_on:
       - docker-mysql
