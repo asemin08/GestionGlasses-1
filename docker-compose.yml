@@ -13,15 +13,15 @@ services:
       - '3306:3306'
   phpmyadmin:
     depends_on:
-      - mysql-database
+      - mysql
     image: phpmyadmin/phpmyadmin
     ports:
       - '8081:80'
     environment:
-      PMA_HOST: mysql-database
+      PMA_HOST: mysql
   spring:
     depends_on:
-      - mysql-database
+      - mysql
     image: verkeur08/gestionglasses
     ports:
       - '8080:8080'
