@@ -14,7 +14,7 @@ services:
   phpmyadmin:
     container_name: phpmyadmin
     depends_on:
-      - mysql
+      - docker-mysql
     image: phpmyadmin/phpmyadmin
     ports:
       - "8081:80"
