@@ -8,7 +8,7 @@ RUN apk update && \
     apk add maven && \
     apk add bash
 
-RUN git clone -b devops https://github.com/brikema/GestionGlasses.git
+RUN git clone https://github.com/asemin08/GestionGlasses-1.git
 
 WORKDIR GestionGlasses
 
