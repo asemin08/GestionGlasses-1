@@ -1,8 +1,8 @@
 version: '3.3'
 services:
-  mysql-database:
+  mysql:
     image: mysql:8.0
-    container_name: mysql-database
+    container_name: mysql
     volumes:
       - ./mysql-data:/var/lib/mysql
     restart: always
