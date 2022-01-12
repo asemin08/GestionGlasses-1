@@ -10,7 +10,7 @@ RUN apk update && \
 
 RUN git clone https://github.com/asemin08/GestionGlasses-1.git
 
-WORKDIR GestionGlasses
+WORKDIR GestionGlasses-1
 
 RUN mvn clean package
 
