@@ -31,5 +31,6 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql/glasses?useSSL=false&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: springUser
       SPRING_DATASOURCE_PASSWORD: springUser
+      APP_PORT: 8080
     depends_on:
       - docker-mysql
